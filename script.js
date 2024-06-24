@@ -1,14 +1,12 @@
 const container = document.querySelector('.container');
 const paprika = document.querySelector('.paprika');
 
-//btns
 const btns = document.querySelectorAll('.btn');
 const btnSmall = document.querySelector('.small');
 const btnMedium = document.querySelector('.medium');
 const btnLarge = document.querySelector('.large');
-const btnDefault = document.querySelector('.default');
-const label = document.querySelector('.label');
 const btnApply = document.querySelector('.btnApply');
+const label = document.querySelector('.label');
 const btnReset = document.querySelector('.btnReset');
 const input = document.querySelector('.input');
 const labelValue = document.querySelector('.value');
@@ -32,15 +30,18 @@ const styleGrid = function (n) {
   const displayGrid = function (n) {
     container.innerHTML = '';
 
+    const append = function (colRow) {
+        colRow.classList.add('paprika');
+        container.appendChild(colRow);
+      };
+
     for (let i = 0; i < n; i++) {
       const columns = document.createElement('div');
-      columns.classList.add('paprika');
-      container.appendChild(columns);
+      append(columns);
   
       for (let y = 1; y < n; y++) {
         const rows = document.createElement('div');
-        rows.classList.add('paprika');
-        container.appendChild(rows);
+        append(rows);
       }
     }
 };
@@ -51,7 +52,6 @@ styleGrid('16');
 input.value = 16;
 
 label.addEventListener('click', function (e) {
-  btnSmall.classList.remove('color');
   btns.forEach((el) => el.classList.remove('color'));
 
   console.log(e.target);
