@@ -5,14 +5,31 @@
   }
 
   body {
-    background-color: #e9ecef;
+    background-color: #f8f9fa;
     position: relative;
+    font-family: 'Cabin Sketch', cursive, sans-serif;
+  }
+  
+  .heading-primary {
+    font-family: 'Cabin Sketch', cursive, sans-serif;
+    color: #051422;
+    text-align: center;
+    font-size: 52px;
+    margin-top: 15px;
+    font-weight: 600;
+  }
+
+  .subheading {
+    font-family: 'Cabin Sketch', cursive, sans-serif;
+    text-align: center;
+    font-size: 32px;
+    color: #051422;
+    font-weight: 500;
   }
   
   .paprika {
-    border: 1px solid #adb5bd;
-
-    border-style: ridge;
+    border: #495057;
+    border: 0.5px solid rgba(0, 0, 0, 0.05);
   }
 
   .label {
@@ -20,15 +37,20 @@
     width: 1000px;
     justify-content: center;
     gap: 30px;
-    margin: 20px auto;
+    margin: 32px auto;
   }
   
   .btn {
+    font-family: 'Cabin Sketch', cursive, sans-serif;
     border: none;
     padding: 10px 20px;
     display: inline-block;
-  
     font-size: 18px;
+  }
+
+  .btn:hover {
+    background-color: #1864ab;
+    color: #fff;
   }
   
   .color {
@@ -37,9 +59,9 @@
   
   .slider-div {
     position: absolute;
-    top: 26%;
+    top: 30%;
     left: 26%;
-    transform: translate(50%, 50%);
+    padding: 0 11px;
   }
   
   .slider-value {
@@ -56,6 +78,10 @@
   
   .heading {
     color: #1864ab;
+    font-weight: 600;
+  }
+
+  .value {
     font-weight: 600;
   }
   

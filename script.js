@@ -8,7 +8,12 @@ const btnMedium = document.querySelector('.medium');
 const btnLarge = document.querySelector('.large');
 const btnDefault = document.querySelector('.default');
 const label = document.querySelector('.label');
+const btnApply = document.querySelector('.btnApply');
+const btnReset = document.querySelector('.btnReset');
+const input = document.querySelector('.input');
+const labelValue = document.querySelector('.value');
 
+//functions
 const numberColumnsRows = function (n) {
   return `repeat(${n}, 1fr)`;
 };
@@ -19,14 +24,14 @@ const styleGrid = function (n) {
     container.style.gridTemplateRows = numberColumnsRows(n);
     container.style.width = '600px';
     container.style.height = '600px';
-    container.style.margin = `0 auto`;
-    container.style.marginTop = `50px`;
+    container.style.margin = `32px auto`;
     container.style.border = `2px solid #a5d8ff`;
-  
     container.style.gap = '1px';
   };
   
   const displayGrid = function (n) {
+    container.innerHTML = '';
+
     for (let i = 0; i < n; i++) {
       const columns = document.createElement('div');
       columns.classList.add('paprika');
@@ -40,11 +45,13 @@ const styleGrid = function (n) {
     }
 };
 
-displayGrid(8);
-styleGrid('8');
+// general set up
+displayGrid(16);
+styleGrid('16');
+input.value = 16;
 
 label.addEventListener('click', function (e) {
-  btnDefault.classList.remove('color');
+  btnSmall.classList.remove('color');
   btns.forEach((el) => el.classList.remove('color'));
 
   console.log(e.target);
@@ -55,41 +62,49 @@ label.addEventListener('click', function (e) {
   }
 });
 
-btnDefault.classList.add('color');
-
-// set Default
-btnDefault.addEventListener('click', function () {
-  container.innerHTML = '';
-
-  displayGrid(8);
-  styleGrid('8');
-});
+btnSmall.classList.add('color');
 
 // change grid
 btnSmall.addEventListener('click', function (e) {
-  container.innerHTML = '';
+
   displayGrid(16);
   styleGrid('16');
 });
 
 btnMedium.addEventListener('click', function () {
-  container.innerHTML = '';
+
   displayGrid(32);
   styleGrid('32');
 });
 
 btnLarge.addEventListener('click', function () {
-  container.innerHTML = '';
+
   displayGrid(48);
   styleGrid('48');
 });
 
-const input = document.querySelector('.input');
-console.log(input.value);
-const labelValue = document.querySelector('.value');
-
 input.addEventListener('click', function (e) {
-  container.innerHTML = '';
+    const val1 = input.value;
+    labelValue.textContent = `${val1}x${val1}`;
+  });
+
+  btnReset.addEventListener('click', function () {
+    container.innerHTML = '';
+    displayGrid(16);
+    styleGrid('16');
+    input.value = 16;
+    labelValue.textContent = `16x16`;
+  });
+  
+  // hover effect
+  container.addEventListener('mouseover', function (e) {
+    if (e.target.classList.contains('paprika')) {
+      const hovered = e.target;
+      hovered.style.backgroundColor = `#1864ab`;
+    }
+  });
+  
+  btnApply.addEventListener('click', function (e) {
   const val1 = input.value;
   console.log(val1);
   displayGrid(val1);

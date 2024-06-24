@@ -3,10 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>replit</title>
+    <title>Etch a sketch</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <h1 class="heading-primary">Etch A Sketch!</h1>
+    <p class="subheading">Hover the container to draw</p>
+
     <div class="container"></div>
 
     <div class="label">
@@ -18,7 +27,7 @@
       <div class="slider-div">
         <div class="slider-value">
           <h3 class="heading">Controls</h3>
-          <span class="value">8x8</span>
+          <span class="value">16x16</span>
           <input class="input" type="range" min = "2" max ="50" value""8">
           <button class="btn btnApply">Apply</button>
           <button class="btn btnReset">Reset</button>
